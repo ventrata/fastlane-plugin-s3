@@ -435,7 +435,7 @@ module Fastlane
           file_name = "#{app_directory}/#{file_name}"
         end
 
-        bucket = Aws::S3::Bucket.new(bucket_name, client: s3_client)
+        bucket = Aws::S3::Bucket.new(bucket_name, client: s3_client, virtual_host: true)
         details = {
           acl: acl,
           key: file_name,
