@@ -435,7 +435,7 @@ module Fastlane
           file_name = "#{app_directory}/#{file_name}"
         end
 
-        bucket = Aws::S3::Bucket.new(bucket_name, client: s3_client, virtual_host: true)
+        bucket = Aws::S3::Bucket.new(bucket_name, client: s3_client)
         details = {
           acl: acl,
           key: file_name,
@@ -454,7 +454,7 @@ module Fastlane
         end
 
         # Return public url
-        obj.public_url.to_s
+        obj.public_url(virtual_host: true).to_s
       end
 
       #
