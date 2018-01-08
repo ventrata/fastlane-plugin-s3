@@ -454,7 +454,7 @@ module Fastlane
         end
 
         # Return public url
-        obj.public_url(virtual_host: true).to_s
+        obj.public_url(virtual_host: true).to_s.gsub(/http:/, 'https:')
       end
 
       #
